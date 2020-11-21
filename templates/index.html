@@ -3,7 +3,7 @@ layout: default
 ---
 
 <h1>{{ title }}</h1>
-
+<div class="container">
 <h2>Classes</h2>
 <ul class="classes">
 {% for class in classes %}
@@ -18,10 +18,12 @@ layout: default
 {% if function.params %}
 <h4>Parameters</h4>
 <table class="params">
-<tr><th>name</th><th>description</th><th>default</th></tr>
+  <thead><tr><th>name</th><th>description</th><th>default</th></tr></thead>
+  <tbody>
 {% for param in function.params %}
-<td>{{ param.name }}</td><td>{{ param.description }}</td><td>{{ param.default }}</td>
+<tr><td>{{ param.name }}</td><td>{{ param.description }}</td><td>{{ param.default }}</td><tr>
 {% endfor %}
+  </tbody>
 </table>
 {% endif %}
 
@@ -36,5 +38,6 @@ layout: default
 </ul>
 {% endif %}
 {% endfor %}
+</div>
 
 
