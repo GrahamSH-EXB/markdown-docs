@@ -1,3 +1,4 @@
+
 import os
 import utils
 from tag import Tag
@@ -27,7 +28,7 @@ if __name__ == '__main__':
 
     # Create the readme, then create all subsequent 
     data = get_data(classes, functions, output)
-    readme_template = utils.load_template("../templates/index.md", True)
+    readme_template = utils.load_template("../templates/readme.md", True)
     md = readme_template.render(data)
     with open(os.path.join(output, 'index.md'), 'w') as file:
         file.write(md)
