@@ -28,15 +28,15 @@ if __name__ == '__main__':
 
     # Create the readme, then create all subsequent 
     data = get_data(classes, functions, output)
-    readme_template = utils.load_template("../templates/index.html", True)
+    readme_template = utils.load_template("../templates/index.md", True)
     md = readme_template.render(data)
-    with open(os.path.join(output, 'index.html'), 'w') as file:
+    with open(os.path.join(output, 'index.md'), 'w') as file:
         file.write(md)
 
     # Create file for each class
-    class_template = utils.load_template("../templates/class.html", True)
+    class_template = utils.load_template("../templates/class.md", True)
     for class_data in data['classes']:
         md = class_template.render(class_data)
-        file_path = os.path.join(output, class_data['name'] + '.html')
+        file_path = os.path.join(output, class_data['name'] + '.md')
         with open(file_path, 'w') as file:
             file.write(md)
